@@ -1,18 +1,16 @@
 # Ansible Role: Redis
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-redis.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-redis)
+[![Build Status](https://travis-ci.org/nycrecords/ansible-role-redis.svg?branch=master)](https://travis-ci.org/nycrecords/ansible-role-redis)
 
-Installs [Redis](http://redis.io/) on Linux.
+Installs [Redis](http://redis.io/) on RedHat Enterprise Linux.
 
 ## Requirements
 
-On RedHat-based distributions, requires the EPEL repository (you can simply add the role `geerlingguy.repo-epel` to install ensure EPEL is available).
+Requires an active RedHat Subscription and access to RedHat Software Collections. 
+
+You can simply add the role `nycrecords.nycrecords_role_common` (or `nycrecords.nycrecords_role_common_no_proxy`) to bootstrap your environment.
 
 ## Role Variables
-
-    redis_enablerepo: epel
-
-(Used only on RHEL/CentOS) The repository to use for Redis installation.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
@@ -79,7 +77,7 @@ Add extra include file paths to this list to include more/localized Redis config
 
 The redis package name for installation via the system package manager. Defaults to `redis-server` on Debian and `redis` on RHEL.
 
-    redis_package_name: "redis-server"
+    redis_package_name: "rh-redis5"
 
 (Default for RHEL shown) The redis package name for installation via the system package manager. Defaults to `redis-server` on Debian and `redis` on RHEL.
 
@@ -108,7 +106,7 @@ None.
 
     - hosts: all
       roles:
-        - role: geerlingguy.redis
+        - role: nycrecords.redis
 
 ## License
 
@@ -117,3 +115,5 @@ MIT / BSD
 ## Author Information
 
 This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+
+This version was modifed by in 2019 [Joel Castillo][https://github.com/joelbcastillo] for the [NYC Department of Records and Information Services](https://github.com/nycrecords) development team.
