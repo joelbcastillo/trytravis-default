@@ -7,7 +7,5 @@ verify_ssl = true
 ansible = "*"
 molecule = {extras = ["docker", "vagrant"],version = "*"}
 
-[packages]
-
 [requires]
 python_version = "3.7"

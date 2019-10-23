@@ -4,4 +4,4 @@
   become: true
 
   roles:
-    - role: nycrecords.redis
+    - role: ansible-role-redis
