@@ -6,9 +6,13 @@ env:
   global:
     - ROLE_NAME: redis
   matrix:
-    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: rhel7
 
 install:
+  # Login to docker
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" registry.redhat.io
+  # Pull RHEL7 Docker Image
+  - docker pull registry.access.redhat.com/rhel7
   # Install test dependencies.
   - pip install molecule docker
 
